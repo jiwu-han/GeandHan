@@ -132,6 +132,7 @@ window.onload=function starttime(){
 }
 
     function time(obj,futimg){
+        var today=new Date();//定义日zhi期对dao象
         var nowtime = new Date().getTime(); // 现在时间转换为时间戳
         var futruetime =  new Date(futimg).getTime(); // 未来时间转换为时间戳
         var msec = nowtime-futruetime; // 毫秒 未来时间-现在时间
@@ -142,7 +143,12 @@ window.onload=function starttime(){
         var second = parseInt(time%60);  // 以60秒为一整份 取余 剩下秒数
 //              console.log(hour+":"+minute+":"+second)
 //              alert(hour)
-        obj.innerHTML="格格你看<br>咱俩在一起的时间已经：<br>"+day+"天"+hour+"小时"+minute+"分"+second+"秒"+"了<br><span>不知不觉都过来这么长时间了<br>和你在一起的日子总感觉那么短暂<br>不管未来的路如何，想慢慢和你一起变老<br>直至数据溢出，还在你身边<br>第一次恋爱没什么经验<br>希望你不要嫌弃<br>往后的日子里还请多指教<br></span>"
+        var newyear = today.getFullYear();//通过日期对象的getFullYear()方法返回年
+        var year = newyear - 2021;
+        if (day > 365){
+          var day = 0;
+        }
+        obj.innerHTML="格格你看<br>咱俩在一起的时间已经：<br>"+year+"年"+day+"天"+hour+"小时"+minute+"分"+second+"秒"+"了<br><span>不知不觉都过来这么长时间了<br>和你在一起的日子总感觉那么短暂<br>不管未来的路如何，想慢慢和你一起变老<br>直至数据溢出，还在你身边<br>第一次恋爱没什么经验<br>希望你不要嫌弃<br>往后的日子里还请多指教<br></span>"
         return true;
     }
 </script>
